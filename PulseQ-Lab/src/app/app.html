@@ -1,0 +1,17 @@
+<router-outlet />
+
+<!-- Custom Toast Notification Container -->
+<div class="toast-container">
+  @for (t of toast.toasts(); track t.id) {
+    <div class="toast-item" [class]="t.severity" (click)="toast.remove(t.id)">
+      <i class="pi" [class]="getIcon(t.severity)"></i>
+      <div class="toast-content">
+        @if (t.summary) {
+          <div class="toast-summary">{{ t.summary }}</div>
+        }
+        <div class="toast-detail">{{ t.detail }}</div>
+      </div>
+      <button class="toast-close">&times;</button>
+    </div>
+  }
+</div>

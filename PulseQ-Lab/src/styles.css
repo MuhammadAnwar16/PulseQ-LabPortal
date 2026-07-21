@@ -1,0 +1,656 @@
+/* =====================================================================
+   PulseQ Design System — Global Tokens & Premium UI Style overrides
+   Hand-crafted, modern typography, layout, and component aesthetics.
+   ===================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* PulseQ primary blue (Tailwind blue scale) */
+  --pq-blue-50: #f0f6ff;
+  --pq-blue-100: #e0ecff;
+  --pq-blue-200: #c2d9ff;
+  --pq-blue-300: #94bdff;
+  --pq-blue-400: #5d98ff;
+  --pq-blue-500: #3b76f6;
+  --pq-blue-600: #2558eb;
+  --pq-blue-700: #1d43d8;
+  --pq-blue-800: #1e36af;
+  --pq-blue-900: #1e318a;
+  --pq-blue-950: #172054;
+
+  /* Slate text + grays */
+  --pq-slate-900: #0f172a;
+  --pq-slate-800: #1e293b;
+  --pq-slate-700: #334155;
+  --pq-slate-600: #475569;
+  --pq-slate-500: #64748b;
+  --pq-slate-400: #94a3b8;
+  --pq-slate-300: #cbd5e1;
+  --pq-slate-200: #e2e8f0;
+  --pq-slate-100: #f1f5f9;
+  --pq-slate-50: #f8fafc;
+
+  /* Semantic palette */
+  --pq-success-600: #16a34a;
+  --pq-success-500: #22c55e;
+  --pq-success-50: #f0fdf4;
+  --pq-danger-600: #dc2626;
+  --pq-danger-500: #ef4444;
+  --pq-danger-50: #fef2f2;
+  --pq-amber-700: #b45309;
+  --pq-amber-500: #f59e0b;
+  --pq-amber-50: #fffbeb;
+
+  /* Surfaces & Shadows */
+  --pq-bg: #f8fafc;
+  --pq-surface: #ffffff;
+  --pq-border: #e2e8f0;
+  --pq-radius: 16px;
+  --pq-radius-md: 12px;
+  --pq-radius-sm: 8px;
+  --pq-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.03), 0 1px 2px -1px rgba(15, 23, 42, 0.03);
+  --pq-shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+  --pq-shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.08);
+  --pq-shadow-premium: 0 20px 25px -5px rgba(37, 88, 235, 0.04), 0 8px 10px -6px rgba(37, 88, 235, 0.04);
+
+  /* Font */
+  --pq-font: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Make PrimeNG components share the exact system values */
+:root {
+  --p-primary-50: var(--pq-blue-50);
+  --p-primary-100: var(--pq-blue-100);
+  --p-primary-200: var(--pq-blue-200);
+  --p-primary-300: var(--pq-blue-300);
+  --p-primary-400: var(--pq-blue-400);
+  --p-primary-500: var(--pq-blue-500);
+  --p-primary-600: var(--pq-blue-600);
+  --p-primary-700: var(--pq-blue-700);
+  --p-primary-800: var(--pq-blue-800);
+  --p-primary-900: var(--pq-blue-900);
+  --p-primary-950: var(--pq-blue-950);
+  --p-text-color: var(--pq-slate-800);
+  --p-content-border-color: var(--pq-border);
+  --p-content-border-radius: var(--pq-radius-md);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: var(--pq-font);
+  color: var(--pq-slate-800);
+  background: var(--pq-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--pq-blue-600);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+a:hover {
+  color: var(--pq-blue-700);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--pq-slate-900);
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+/* Scrollbar tuning */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--pq-slate-300);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pq-slate-400);
+}
+
+/* =====================================================================
+   Premium Page Layout Helpers
+   ===================================================================== */
+.pq-page {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.pq-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.pq-page-header h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.pq-page-header p {
+  margin: 0;
+  color: var(--pq-slate-500);
+  font-size: 0.95rem;
+}
+
+.pq-card {
+  background: var(--pq-surface);
+  border: 1px solid var(--pq-border);
+  border-radius: var(--pq-radius);
+  box-shadow: var(--pq-shadow);
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.pq-card:hover {
+  box-shadow: var(--pq-shadow-lg);
+  border-color: var(--pq-slate-300);
+}
+
+.pq-muted {
+  color: var(--pq-slate-500);
+}
+
+.pq-flex {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.pq-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.pq-stat-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* =====================================================================
+   PrimeNG & Element Custom Overrides (Professional UI Theme)
+   ===================================================================== */
+
+/* 1. PrimeNG Buttons with subtle gradient & lift transitions */
+button.p-button,
+::ng-deep .p-button {
+  border-radius: var(--pq-radius-md) !important;
+  font-family: var(--pq-font) !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  padding: 0.6rem 1.25rem !important;
+  box-shadow: var(--pq-shadow) !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border: 1px solid transparent !important;
+}
+
+button.p-button:not(.p-button-outlined):not(.p-button-text),
+::ng-deep .p-button:not(.p-button-outlined):not(.p-button-text) {
+  background: linear-gradient(135deg, var(--pq-blue-500) 0%, var(--pq-blue-700) 100%) !important;
+  color: #ffffff !important;
+}
+
+button.p-button:not(.p-button-outlined):not(.p-button-text):hover,
+::ng-deep .p-button:not(.p-button-outlined):not(.p-button-text):hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(37, 88, 235, 0.15) !important;
+  background: linear-gradient(135deg, var(--pq-blue-600) 0%, var(--pq-blue-800) 100%) !important;
+}
+
+/* Outlined buttons */
+button.p-button-outlined,
+::ng-deep .p-button-outlined {
+  background: var(--pq-surface) !important;
+  border-color: var(--pq-slate-300) !important;
+  color: var(--pq-slate-700) !important;
+}
+button.p-button-outlined:hover,
+::ng-deep .p-button-outlined:hover {
+  background: var(--pq-slate-50) !important;
+  border-color: var(--pq-slate-400) !important;
+  color: var(--pq-slate-900) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* =====================================================================
+   2. Custom Native Tables — High Fidelity, Clean & Modern
+   ===================================================================== */
+.pq-table-container {
+  background: var(--pq-surface);
+  border: 1px solid var(--pq-border);
+  border-radius: var(--pq-radius-md);
+  overflow: hidden;
+  box-shadow: var(--pq-shadow);
+  margin-top: 1rem;
+}
+
+.pq-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.pq-table th {
+  background-color: var(--pq-slate-50);
+  color: var(--pq-slate-700);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1rem 1.25rem;
+  border-bottom: 2px solid var(--pq-border);
+}
+
+.pq-table td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--pq-border);
+  font-size: 0.92rem;
+  color: var(--pq-slate-700);
+}
+
+.pq-table tr:hover {
+  background-color: var(--pq-slate-50);
+}
+
+.pq-table tr:last-child td {
+  border-bottom: none;
+}
+
+.pq-table-loading {
+  position: relative;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.pq-table-loading::after {
+  content: "Loading...";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: var(--pq-blue-600);
+  background: rgba(255, 255, 255, 0.4);
+  font-size: 1.1rem;
+}
+
+/* Pagination bar */
+.pq-paginator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background: var(--pq-slate-50);
+  border-top: 1px solid var(--pq-border);
+  font-size: 0.85rem;
+  color: var(--pq-slate-500);
+}
+
+.pq-paginator-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* =====================================================================
+   3. Custom Form Controls (Inputs, Select Dropdowns, Textareas)
+   ===================================================================== */
+.pq-input,
+.pq-select,
+.pq-textarea {
+  width: 100%;
+  border-radius: var(--pq-radius-md);
+  border: 1px solid var(--pq-slate-300);
+  font-family: var(--pq-font);
+  padding: 0.6rem 0.85rem;
+  font-size: 0.92rem;
+  color: var(--pq-slate-800);
+  background-color: var(--pq-surface);
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.05);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+.pq-input:focus,
+.pq-select:focus,
+.pq-textarea:focus {
+  border-color: var(--pq-blue-500);
+  box-shadow: 0 0 0 4px var(--pq-blue-100);
+}
+
+.pq-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.pq-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2364748b' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.75rem center;
+  background-repeat: no-repeat;
+  background-size: 1.25rem;
+  padding-right: 2.5rem;
+}
+
+/* =====================================================================
+   4. Native Premium Buttons (Gradients, elevations, micro-animations)
+   ===================================================================== */
+.pq-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: var(--pq-radius-md);
+  font-family: var(--pq-font);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.25rem;
+  box-shadow: var(--pq-shadow);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+.pq-btn-primary {
+  background: linear-gradient(135deg, var(--pq-blue-500) 0%, var(--pq-blue-700) 100%);
+  color: #ffffff;
+}
+
+.pq-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 88, 235, 0.15);
+  background: linear-gradient(135deg, var(--pq-blue-600) 0%, var(--pq-blue-800) 100%);
+}
+
+.pq-btn-primary:active {
+  transform: translateY(0);
+}
+
+.pq-btn-outline {
+  background: var(--pq-surface);
+  border-color: var(--pq-slate-300);
+  color: var(--pq-slate-700);
+}
+
+.pq-btn-outline:hover {
+  background: var(--pq-slate-50);
+  border-color: var(--pq-slate-400);
+  color: var(--pq-slate-900);
+  transform: translateY(-1px);
+}
+
+.pq-btn-text {
+  background: transparent;
+  color: var(--pq-slate-600);
+  box-shadow: none;
+  padding: 0.4rem 0.75rem;
+}
+
+.pq-btn-text:hover {
+  background: var(--pq-slate-100);
+  color: var(--pq-slate-900);
+}
+
+.pq-btn-text-danger {
+  background: transparent;
+  color: var(--pq-danger-600);
+  box-shadow: none;
+  padding: 0.4rem 0.75rem;
+}
+
+.pq-btn-text-danger:hover {
+  background: var(--pq-danger-50);
+  color: var(--pq-danger-600);
+}
+
+.pq-btn-danger {
+  background: linear-gradient(135deg, var(--pq-danger-500) 0%, var(--pq-danger-600) 100%);
+  color: #ffffff;
+}
+
+.pq-btn-danger:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.15);
+  background: linear-gradient(135deg, var(--pq-danger-600) 0%, var(--pq-danger-600) 100%);
+}
+
+/* =====================================================================
+   5. Custom Semantic Badges / Soft Tags
+   ===================================================================== */
+.pq-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--pq-radius-sm);
+  text-transform: capitalize;
+  line-height: 1;
+}
+
+.pq-badge-info {
+  background: var(--pq-blue-50);
+  color: var(--pq-blue-700);
+}
+
+.pq-badge-success {
+  background: var(--pq-success-50);
+  color: var(--pq-success-600);
+}
+
+.pq-badge-danger {
+  background: var(--pq-danger-50);
+  color: var(--pq-danger-600);
+}
+
+.pq-badge-warn {
+  background: var(--pq-amber-50);
+  color: var(--pq-amber-700);
+}
+
+/* =====================================================================
+   6. Custom Modal Dialog System (Glassmorphic & overlay transitions)
+   ===================================================================== */
+.pq-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: pq-fade-in 0.2s ease-out;
+}
+
+.pq-modal {
+  background: var(--pq-surface);
+  border: 1px solid var(--pq-border);
+  border-radius: var(--pq-radius);
+  box-shadow: var(--pq-shadow-lg);
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: pq-slide-up 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.pq-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  background: var(--pq-slate-50);
+  border-bottom: 1px solid var(--pq-border);
+}
+
+.pq-modal-header h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--pq-slate-900);
+}
+
+.pq-modal-close {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--pq-slate-400);
+  cursor: pointer;
+  padding: 0.2rem;
+  line-height: 1;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.pq-modal-close:hover {
+  background: var(--pq-slate-200);
+  color: var(--pq-slate-800);
+}
+
+.pq-modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.pq-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: var(--pq-slate-50);
+  border-top: 1px solid var(--pq-border);
+}
+
+@keyframes pq-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pq-slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* =====================================================================
+   7. Custom Reactive Toast System Styles
+   ===================================================================== */
+.toast-container {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 420px;
+  width: calc(100% - 3rem);
+}
+
+.toast-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 1rem;
+  border-radius: var(--pq-radius-md);
+  background: var(--pq-surface);
+  border: 1px solid var(--pq-border);
+  box-shadow: var(--pq-shadow-lg);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: pq-slide-left 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.toast-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+}
+
+.toast-item.success::before { background: var(--pq-success-500); }
+.toast-item.success i { color: var(--pq-success-600); }
+
+.toast-item.error::before { background: var(--pq-danger-500); }
+.toast-item.error i { color: var(--pq-danger-600); }
+
+.toast-item.warn::before { background: var(--pq-amber-500); }
+.toast-item.warn i { color: var(--pq-amber-700); }
+
+.toast-item.info::before { background: var(--pq-blue-500); }
+.toast-item.info i { color: var(--pq-blue-600); }
+
+.toast-item i {
+  font-size: 1.25rem;
+  margin-top: 0.1rem;
+}
+
+.toast-content {
+  flex: 1;
+}
+
+.toast-summary {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.15rem;
+  color: var(--pq-slate-900);
+}
+
+.toast-detail {
+  font-size: 0.85rem;
+  color: var(--pq-slate-600);
+  line-height: 1.4;
+}
+
+.toast-close {
+  background: transparent;
+  border: none;
+  font-size: 1.15rem;
+  color: var(--pq-slate-400);
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  margin-left: 0.5rem;
+}
+
+.toast-close:hover {
+  color: var(--pq-slate-700);
+}
+
+@keyframes pq-slide-left {
+  from { transform: translateX(50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
