@@ -1,0 +1,70 @@
+# Operating System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE & Editor settings
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+*.swp
+*.swo
+
+# Python / Virtual Environment
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# Python testing & coverage
+.pytest_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+.nox/
+.tox/
+
+# Local database & generated reports
+*.db
+*.sqlite
+*.sqlite3
+pulseq.db
+backend/pulseq.db
+reports/
+backend/reports/*.pdf
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+
+# Node.js / Angular Frontend
+node_modules/
+.angular/
+dist/
+tmp/
+out-tsc/
+bazel-out/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Server outputs
+*.pid
+*.seed
+*.pid.lock
