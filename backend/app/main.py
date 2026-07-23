@@ -20,10 +20,13 @@ logger = logging.getLogger("pulseq.lab.main")
 def create_app() -> FastAPI:
     app = FastAPI(title="PulseQ Laboratory API", version="0.1.0", redirect_slashes=False)
 
+    cors_origins = settings.CORS_ORIGINS
+    allow_all = "*" in cors_origins or os.getenv("CORS_ORIGINS") == "*"
+
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=settings.CORS_ORIGINS,
-        allow_origin_regex=r"https?://(localhost|127\.0\.0\.1)(:\d+)?",
+        allow_origins=["*"] if allow_all else cors_origins,
+        allow_origin_regex=r"https?://.*" if allow_all else r"https?://(localhost|127\.0\.0\.1)(:\d+)?",
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],

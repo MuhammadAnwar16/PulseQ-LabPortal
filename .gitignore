@@ -44,8 +44,7 @@ htmlcov/
 *.sqlite3
 pulseq.db
 backend/pulseq.db
-reports/
-backend/reports/*.pdf
+backend/reports/
 
 # Environment variables & secrets
 .env
