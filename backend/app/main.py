@@ -62,6 +62,12 @@ def create_app() -> FastAPI:
     @app.on_event("startup")
     def _startup() -> None:
         init_db()
+        try:
+            from seed import seed as run_seed
+            run_seed()
+            logger.info("✅ Database seeded with default user accounts and catalog")
+        except Exception as e:
+            logger.warning("Auto-seed notice: %s", e)
 
     return app
 
